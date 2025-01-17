@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params) # プロトタイプに関連付けて新しいコメントを作成
     if @comment.save
       # コメントが保存された場合、プロトタイプの詳細ページにリダイレクト
-      redirect_to prototype_path(@coment.prototype)
+      redirect_to prototype_path(@comment.prototype)
     else
       # コメントの保存に失敗した場合、詳細ページを再表示
       @prototype = @comment.prototype
