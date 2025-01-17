@@ -25,7 +25,7 @@ class PrototypesController < ApplicationController
     else
     # 保存が失敗した場合、新規投稿ページを再表示
     # flash.now[:alert] = 'プロトタイプの作成に失敗しました。入力内容を確認してください。'
-    redirect_to prototype_path(@prototype)
+    render :new, status: :unprocessable_entity
     end
   end
 
@@ -49,7 +49,7 @@ class PrototypesController < ApplicationController
       # , notice: 'プロトタイプを更新しました！'
     else
       # flash.now[:alert] = 'プロトタイプの更新に失敗しました。入力内容を確認してください。'
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
